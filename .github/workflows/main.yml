@@ -2,16 +2,17 @@ name: checkov_test
 on:
   push:
 
+permissions: read-all
+
 jobs:
   checkov:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install Checkov
-        run: |
-          pip install checkov
+      - name: Checkov Scan
+        uses: bridgecrewio/checkov-action@master
 
       - name: Checkov Scan
         run: checkov -d 
