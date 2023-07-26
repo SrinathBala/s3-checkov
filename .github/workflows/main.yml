@@ -3,20 +3,22 @@ on:
   push:
 
 jobs:
-  Checkov:
+  checkov:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Install Checkov
-        uses: bridgecrewio/checkov-action@master
+        run: |
+          pip install checkov
 
       - name: Checkov Scan
         run: checkov -d 
 
   DeployStack:
     runs-on: ubuntu-latest
+    needs: checkov
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
