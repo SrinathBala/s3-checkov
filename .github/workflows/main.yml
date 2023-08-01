@@ -11,12 +11,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install Checkov
+        run: |
+          pip install checkov
       - name: Checkov Scan
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: lib
-        env:
-          CHECKOV_VERSION: latest
+        run: checkov --file /lib/s3-checkov-stack.ts
+        
 
 
   DeployStack:
