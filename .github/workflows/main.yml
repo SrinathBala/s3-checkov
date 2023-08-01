@@ -11,16 +11,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Checkov Scan
+        uses: bridgecrewio/checkov-action@master
         with:
-          node-version: '14'
+          directory: ../lib/
+        env:
+          CHECKOV_VERSION: latest
 
-      - name: Install Checkov
-        run: npm install -g checkov
-
-      - name: Run Checkov
-        run: checkov -d ../lib/
 
   DeployStack:
     runs-on: ubuntu-latest
