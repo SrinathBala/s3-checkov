@@ -14,7 +14,7 @@ jobs:
       - name: Checkov Scan
         uses: bridgecrewio/checkov-action@master
         with:
-          directory: ../lib
+          directory: lib
         env:
           CHECKOV_VERSION: latest
 
