@@ -15,7 +15,7 @@ jobs:
         run: |
           pip install checkov
       - name: Checkov Scan
-        run: checkov --file /lib/s3-checkov-stack.ts
+        run: checkov --directory lib --check CKV_AWS_20,CKV_AWS_57
         
 
 
