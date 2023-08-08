@@ -15,7 +15,7 @@ jobs:
         run: |
           pip3 install checkov
       - name: Checkov Scan
-        run: checkov -d .
+        run: checkov -directory lib
         
 
 
