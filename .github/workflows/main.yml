@@ -5,17 +5,14 @@ on:
 permissions: read-all
 
 jobs:
-  checkov:
+  Checkov:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install Checkov
-        run: |
-          pip3 install checkov
       - name: Checkov Scan
-        run: checkov -d ../lib
+        uses: bridgecrewio/checkov-action@master
         
 
 
