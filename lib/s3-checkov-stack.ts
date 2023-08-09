@@ -22,10 +22,10 @@ export class S3CheckovStack extends cdk.Stack {
 
     cfnBucket.cfnOptions.metadata = {
       'checkov': {
-        'skip': [
+        'check': [
           {
-            'id': 'CKV_AWS_18',
-            'comment': 'No need to ensure the S3 bucket has access logging enabled'
+            'id': 'CKV_AWS_20',
+            'comment': 'Ensure the S3 bucket does not allow READ permissions to everyone'
           }
         ]
       }
