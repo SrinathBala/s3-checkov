@@ -19,7 +19,6 @@ export class S3CheckovStack extends cdk.Stack {
     });
 
     const cfnBucket = bucket.node.defaultChild as s3.CfnBucket;
-
     cfnBucket.cfnOptions.metadata = {
       'checkov': {
         'check': [
