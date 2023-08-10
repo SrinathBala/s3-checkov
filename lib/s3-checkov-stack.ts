@@ -17,17 +17,5 @@ export class S3CheckovStack extends cdk.Stack {
         restrictPublicBuckets: false
       })
     });
-
-    const cfnBucket = bucket.node.defaultChild as s3.CfnBucket;
-    cfnBucket.cfnOptions.metadata = {
-      'checkov': {
-        'check': [
-          {
-            'id': 'CKV_AWS_20',
-            'comment': 'Ensure the S3 bucket does not allow READ permissions to everyone'
-          }
-        ]
-      }
-    }
   }
 }
