@@ -24,7 +24,6 @@ jobs:
       - name: Synth stack
         run: yarn cdk synth --output=template
 
-
     runs-on: ubuntu-latest
     needs: Synthstack
     steps:
