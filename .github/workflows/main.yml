@@ -19,10 +19,11 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: 'eu-central-1'
-      - name: Install dependencies
-        run: yarn
-      - name: Synth stack
-        run: yarn cdk synth --output=template
+      - name: CDK bootstrap
+        run: npm run bootstrap 
+
+      - name: CDK deploy
+        run: npm run synth --output=template
 
   checkov:
     runs-on: ubuntu-latest
