@@ -14,10 +14,10 @@
     },
     "BucketName": "s3-checkov-15-07-23",
     "PublicAccessBlockConfiguration": {
-     "BlockPublicAcls": false,
-     "BlockPublicPolicy": false,
-     "IgnorePublicAcls": false,
-     "RestrictPublicBuckets": false
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
     }
    },
    "UpdateReplacePolicy": "Retain",
@@ -26,47 +26,10 @@
     "aws:cdk:path": "S3CheckovStack/S3-checkov-15-07-23/Resource"
    }
   },
-  "S3checkov150723Policy92FEB742": {
-   "Type": "AWS::S3::BucketPolicy",
-   "Properties": {
-    "Bucket": {
-     "Ref": "S3checkov15072330E60210"
-    },
-    "PolicyDocument": {
-     "Statement": [
-      {
-       "Action": "s3:GetObject",
-       "Effect": "Allow",
-       "Principal": {
-        "AWS": "*"
-       },
-       "Resource": {
-        "Fn::Join": [
-         "",
-         [
-          {
-           "Fn::GetAtt": [
-            "S3checkov15072330E60210",
-            "Arn"
-           ]
-          },
-          "/*"
-         ]
-        ]
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "S3CheckovStack/S3-checkov-15-07-23/Policy/Resource"
-   }
-  },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WIzQrCMAyAn2X3Nm56UK/uBWQ+gMw0QtaZwNIqMvbuOip4+n62sK+hrvqXeQzRj3yD+ZJ6jO67rraD+ZQxUnLtXX5WcNaR8f3fpZd1dGSaJ6TVW5XAiVUWJxoIBts8myMcoKkGY/ZTlsQPgq7wAwyer4aPAAAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zPSMzfQM1BMLC/WTU7J1s3JTNKrDi5JTM7WAQrFFxvrVTuVJmenlug4p+VBWLUgZlBqcX5pUXIqiO2cn5eSWZKZn1erk5efkqqXVaxfZmipZ6FnqJhVnJmpW1SaV5KZm6oXBKEBSKLXFXIAAAA="
    },
    "Metadata": {
     "aws:cdk:path": "S3CheckovStack/CDKMetadata/Default"

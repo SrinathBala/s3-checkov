@@ -23,14 +23,28 @@ jobs:
         run: npm install
 
       - name: Synthesize CloudFormation template
-        run: npx cdk synth
+        run: npx cdk synth --output=template
 
-      - name: Copy synth files to target folder
-        run: cp -r cdk.out/* template/
+  format-code:
+    runs-on: ubuntu-latest
+    needs: Synthstack
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Other steps that change files in the repository
+
+      # Commit all changed files back to the repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
+
 
   checkov:
     runs-on: ubuntu-latest
-    needs: Synthstack
+    needs: format-code
     steps:
       - name: Checkout
         uses: actions/checkout@v2

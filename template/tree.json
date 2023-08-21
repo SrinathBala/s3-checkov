@@ -29,67 +29,15 @@
                     },
                     "bucketName": "s3-checkov-15-07-23",
                     "publicAccessBlockConfiguration": {
-                      "blockPublicAcls": false,
-                      "blockPublicPolicy": false,
-                      "ignorePublicAcls": false,
-                      "restrictPublicBuckets": false
+                      "blockPublicAcls": true,
+                      "blockPublicPolicy": true,
+                      "ignorePublicAcls": true,
+                      "restrictPublicBuckets": true
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
-                  "version": "2.70.0"
-                }
-              },
-              "Policy": {
-                "id": "Policy",
-                "path": "S3CheckovStack/S3-checkov-15-07-23/Policy",
-                "children": {
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "S3CheckovStack/S3-checkov-15-07-23/Policy/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
-                      "aws:cdk:cloudformation:props": {
-                        "bucket": {
-                          "Ref": "S3checkov15072330E60210"
-                        },
-                        "policyDocument": {
-                          "Statement": [
-                            {
-                              "Action": "s3:GetObject",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "AWS": "*"
-                              },
-                              "Resource": {
-                                "Fn::Join": [
-                                  "",
-                                  [
-                                    {
-                                      "Fn::GetAtt": [
-                                        "S3checkov15072330E60210",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "/*"
-                                  ]
-                                ]
-                              }
-                            }
-                          ],
-                          "Version": "2012-10-17"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
-                      "version": "2.70.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
                   "version": "2.70.0"
                 }
               }
