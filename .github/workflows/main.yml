@@ -7,6 +7,10 @@ permissions: read-all
 jobs:
   Synthstack:
     runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -25,24 +29,28 @@ jobs:
       - name: Synthesize CloudFormation template
         run: npx cdk synth --output=template
 
-      - name: check code
-        run: pwd
-
-
-  format-code:
-    runs-on: ubuntu-latest
-    needs: Synthstack
-    permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
-      contents: write
-    steps:
       - uses: actions/checkout@v3
 
       # Other steps that change files in the repository
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v4
+
+
+  # format-code:
+  #   runs-on: ubuntu-latest
+  #   needs: Synthstack
+  #   permissions:
+  #     # Give the default GITHUB_TOKEN write permission to commit and push the
+  #     # added or changed files to the repository.
+  #     contents: write
+  #   steps:
+  #     - uses: actions/checkout@v3
+
+  #     # Other steps that change files in the repository
+
+  #     # Commit all changed files back to the repository
+  #     - uses: stefanzweifel/git-auto-commit-action@v4
 
 
   checkov:
