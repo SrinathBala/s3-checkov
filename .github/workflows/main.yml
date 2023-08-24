@@ -25,6 +25,9 @@ jobs:
       - name: Synthesize CloudFormation template
         run: npx cdk synth --output=template
 
+      - name: check code
+        run: cd template & cat S3CheckovStack.template.json
+
 
   format-code:
     runs-on: ubuntu-latest
