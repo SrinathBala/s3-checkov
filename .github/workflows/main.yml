@@ -34,6 +34,12 @@ jobs:
           cd ./template
           cat S3CheckovStack.template.json
 
+      - name: Install Checkov
+        run: |
+          pip3 install checkov
+      - name: Checkov Scan
+        run: checkov -d ./template
+
       # - uses: actions/checkout@v3
 
       # # Other steps that change files in the repository
