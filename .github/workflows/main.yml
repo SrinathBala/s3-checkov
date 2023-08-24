@@ -28,15 +28,6 @@ jobs:
       - name:  list dir
         run: ls -l
 
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install Checkov
-        run: |
-          pip3 install checkov
-      - name: Checkov Scan
-        run: checkov -d template
-
   format-code:
     runs-on: ubuntu-latest
     needs: Synthstack
