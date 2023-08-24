@@ -1,6 +1,8 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as iam from 'aws-cdk-lib/aws-iam';
+
 
 export class S3CheckovStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -17,5 +19,11 @@ export class S3CheckovStack extends cdk.Stack {
         restrictPublicBuckets: true
       })
     });
+
+    bucket.addToResourcePolicy(new iam.PolicyStatement({
+      actions: ['s3:GetObject'],
+      resources: [bucket.arnForObjects('*')],
+      principals: [new iam.ArnPrincipal('*')]
+    }));
   }
 }

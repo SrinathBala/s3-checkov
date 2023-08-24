@@ -25,6 +25,9 @@ jobs:
       - name: Synthesize CloudFormation template
         run: npx cdk synth --output=template
 
+      - name:  list dir
+        run: ls -l
+
   format-code:
     runs-on: ubuntu-latest
     needs: Synthstack
