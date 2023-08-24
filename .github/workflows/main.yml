@@ -30,7 +30,9 @@ jobs:
         run: npx cdk synth --output=template
 
       - name: check
-        run: cd ./template && ls -l
+        run: |
+          cd ./template
+          cat S3CheckovStack.template.json
 
       - uses: actions/checkout@v3
 
