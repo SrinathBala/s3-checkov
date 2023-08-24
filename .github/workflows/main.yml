@@ -26,7 +26,7 @@ jobs:
         run: npx cdk synth --output=template
 
       - name: check code
-        run: cd /template & ls -l
+        run: pwd
 
 
   format-code:
