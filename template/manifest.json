@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/181afb430cbc178654bfd19b6640f870c439d8e4ef32251fb459931e1afdb3c5.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/ddb2d6b1004195c8220fab476ca0aff9a5d3d011e04d49f9e86a15fb4cedc7b8.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -37,6 +37,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "S3checkov15072330E60210"
+          }
+        ],
+        "/S3CheckovStack/S3-checkov-15-07-23/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "S3checkov150723Policy92FEB742"
           }
         ],
         "/S3CheckovStack/CDKMetadata/Default": [
