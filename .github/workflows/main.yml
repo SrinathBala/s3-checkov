@@ -29,6 +29,9 @@ jobs:
       - name: Synthesize CloudFormation template
         run: npx cdk synth --output=template
 
+      - name: check
+        run: cd ./template && ls -l
+
       - uses: actions/checkout@v3
 
       # Other steps that change files in the repository
