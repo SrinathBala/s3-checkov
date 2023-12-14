@@ -9,7 +9,7 @@ export class S3CheckovStack extends cdk.Stack {
     super(scope, id, props);
 
     const bucket = new s3.Bucket(this, `S3-checkov-15-07-23`, {
-      publicReadAccess: true,
+      publicReadAccess: false,
       bucketName: `s3-checkov-15-07-23`,
       encryption: s3.BucketEncryption.S3_MANAGED,
       blockPublicAccess: new s3.BlockPublicAccess({
