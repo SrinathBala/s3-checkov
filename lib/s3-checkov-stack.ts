@@ -13,10 +13,10 @@ export class S3CheckovStack extends cdk.Stack {
       bucketName: `s3-checkov-15-07-23`,
       encryption: s3.BucketEncryption.S3_MANAGED,
       blockPublicAccess: new s3.BlockPublicAccess({
-        blockPublicAcls: false,
-        ignorePublicAcls: false,
-        blockPublicPolicy: false,
-        restrictPublicBuckets: false
+        blockPublicAcls: true,
+        ignorePublicAcls: true,
+        blockPublicPolicy: true,
+        restrictPublicBuckets: true
       })
     });
   }
