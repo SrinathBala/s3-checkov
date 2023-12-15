@@ -5,7 +5,7 @@ on:
 permissions: read-all
 
 jobs:
-  Synthstack:
+  Checkovscan:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -38,7 +38,7 @@ jobs:
 
   DeployStack:
     runs-on: ubuntu-latest
-    needs: Synthstack
+    needs: Checkovscan
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
