@@ -36,6 +36,7 @@ jobs:
       - name: Checkov Scan
         run: checkov -d ./template
 
+
   DeployStack:
     runs-on: ubuntu-latest
     needs: Checkovscan
