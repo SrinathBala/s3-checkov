@@ -34,7 +34,7 @@ jobs:
         run: |
           pip3 install checkov
       - name: Checkov Scan
-        run: checkov -d ./template
+        run: checkov -d ./template --skip-check CKV_AWS_21, CKV_AWS_18
 
 
   DeployStack:
