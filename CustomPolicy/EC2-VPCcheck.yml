@@ -1,0 +1,10 @@
+metadata:
+  name: "Ensure EC2 instances are deployed in EC2-VPC platform"
+  id: "CKV2_AWS_1"
+  category: "NETWORKING"
+definition:
+  cond_type: "attribute"
+  resource_types: "aws_instance"
+  attribute: "platform"
+  operator: "equals"
+  value: "EC2-VPC"
