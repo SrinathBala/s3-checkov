@@ -35,7 +35,7 @@ jobs:
           pip3 install checkov
 
       - name: Checkov Scan
-        run: checkov -d ./CustomPolicy/EC2-VPCcheck
+        run: checkov -d ./CustomPolicy
 
   DeployStack:
     runs-on: ubuntu-latest
